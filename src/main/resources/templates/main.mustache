@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<!--<p style="text-align: center">-->
+<!--    <img src="vin.png" style="position: relative">-->
+<!--</p>-->
+<!--<script>-->
+<!--var cat = document.querySelector("img");-->
+<!--var angle = 0, lastTime = null;-->
+<!--function animate(time) {-->
+<!--if (lastTime != null)-->
+<!--angle += (time - lastTime) * 0.001;-->
+<!--lastTime = time;-->
+<!--cat.style.top = (Math.sin(angle) * 20) + "px";-->
+<!--cat.style.left = (Math.cos(angle) * 200) + "px";-->
+<!--requestAnimationFrame(animate);-->
+<!--}-->
+<!--requestAnimationFrame(animate);-->
+<!--</script>-->
+
+
+<!--<button>Жми меня, чем хочешь!</button>-->
+<!--<script>-->
+<!--var button = document.querySelector("button");-->
+<!--button.addEventListener("mousedown", function(event) {-->
+<!--if (event.which == 1)-->
+<!--console.log("Левая");-->
+<!--else if (event.which == 2)-->
+<!--console.log("Средняя");-->
+<!--else if (event.which == 3)-->
+<!--console.log("Правая");-->
+<!--});-->
+<!--</script>-->
+<div>
+    <form method="post">
+        <input type="text" name="text" placeholder="Введите сообщение">
+        <input type="text" name="tag" placeholder="Тег">
+        <button type="submit"> Добавить</button>
+    </form>
+</div>
+
+<div>Список сообщений </div>
+<form method="post" action="filter">
+    <input type="text" name="filter">
+    <button type="submit">Найти</button>
+</form>
+{{#messages}}
+    <div>
+        <b>{{id}}</b>
+        <span>{{text}}</span>
+        <i>{{tag}}</i>
+    </div>
+
+{{/messages}}
+
+</body>
+</html>
