@@ -30,7 +30,7 @@ public class GreetingController {
     return "main";
     }
 
-    @PostMapping
+    @PostMapping("add")
     public String add(@RequestParam String text, @RequestParam String tag, Map<String, Object> model){
         Message message =new Message(text,tag);
         messagesRepos.save(message);
