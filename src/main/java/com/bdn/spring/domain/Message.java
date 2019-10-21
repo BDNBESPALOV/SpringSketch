@@ -18,6 +18,9 @@ public class Message {
         this.text = text;
         this.tag = tag;
     }
+    public Message(   String tag) {
+        this.tag = tag;
+    }
 
     public void setId(Integer id) {
         this.id = id;

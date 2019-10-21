@@ -1,8 +1,10 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Getting Started: Serving Web Content</title>
+    <link rel="stylesheet" href=".\style.css">
+
 </head>
 <body>
 
@@ -36,11 +38,26 @@
 <!--console.log("Правая");-->
 <!--});-->
 <!--</script>-->
+
+<div id="container">
+    <button class="learn-more">
+        <div class="circle">
+            <span class="icon arrow"></span>
+        </div>
+       <a href="http://localhost:8080"><p class="button-text">Home</p></a>
+    </button>
+</div>
+
+
 <div>
     <form method="post" action="add">
         <input type="text" name="text" placeholder="Введите сообщение">
         <input type="text" name="tag" placeholder="Тег">
         <button type="submit"> Добавить</button>
+    </form>
+    <form method="post" action="delete">
+        <input type="text" name="id" placeholder="id">
+        <button type="submit"> Удалить</button>
     </form>
 </div>
 

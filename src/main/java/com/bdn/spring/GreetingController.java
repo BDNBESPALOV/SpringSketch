@@ -52,4 +52,23 @@ public class GreetingController {
     }
 
 
+
+    @PostMapping("delete")
+    public String delete( Map<String, Object> model, String  id){
+        Iterable<Message> messages;
+        try{
+            Integer Iid = Integer.parseInt(id+"");
+            if( messagesRepos.existsById(Iid)){
+                messagesRepos.deleteById(Iid);
+            }
+        }catch (NumberFormatException e){
+            System.out.println("Заглушка NumberFormatException");
+        }finally {
+            messages = messagesRepos.findAll();
+            model.put("messages",messages);
+        }
+        return "main";
+    }
+
+
 }
