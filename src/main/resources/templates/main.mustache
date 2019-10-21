@@ -8,36 +8,12 @@
 </head>
 <body>
 
-<!--<p style="text-align: center">-->
-<!--    <img src="vin.png" style="position: relative">-->
-<!--</p>-->
-<!--<script>-->
-<!--var cat = document.querySelector("img");-->
-<!--var angle = 0, lastTime = null;-->
-<!--function animate(time) {-->
-<!--if (lastTime != null)-->
-<!--angle += (time - lastTime) * 0.001;-->
-<!--lastTime = time;-->
-<!--cat.style.top = (Math.sin(angle) * 20) + "px";-->
-<!--cat.style.left = (Math.cos(angle) * 200) + "px";-->
-<!--requestAnimationFrame(animate);-->
-<!--}-->
-<!--requestAnimationFrame(animate);-->
-<!--</script>-->
-
-
-<!--<button>Жми меня, чем хочешь!</button>-->
-<!--<script>-->
-<!--var button = document.querySelector("button");-->
-<!--button.addEventListener("mousedown", function(event) {-->
-<!--if (event.which == 1)-->
-<!--console.log("Левая");-->
-<!--else if (event.which == 2)-->
-<!--console.log("Средняя");-->
-<!--else if (event.which == 3)-->
-<!--console.log("Правая");-->
-<!--});-->
-<!--</script>-->
+<div>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
 
 <div id="container">
     <button class="learn-more">
@@ -51,11 +27,14 @@
 
 <div>
     <form method="post" action="add">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
         <input type="text" name="text" placeholder="Введите сообщение">
         <input type="text" name="tag" placeholder="Тег">
         <button type="submit"> Добавить</button>
     </form>
+
     <form method="post" action="delete">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
         <input type="text" name="id" placeholder="id">
         <button type="submit"> Удалить</button>
     </form>
@@ -63,6 +42,7 @@
 
 <div>Список сообщений </div>
 <form method="post" action="filter">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
     <input type="text" name="filter">
     <button type="submit">Найти</button>
 </form>
