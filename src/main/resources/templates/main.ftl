@@ -1,18 +1,9 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Getting Started: Serving Web Content</title>
-    <link rel="stylesheet" href=".\style.css">
-
-</head>
-<body>
+<#import "parts/common.ftl" as c>
+<#import "parts/login.ftl" as l>
+<@c.page>
 
 <div>
-    <form action="/logout" method="post">
-        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-        <input type="submit" value="Sign Out"/>
-    </form>
+<@l.logout />
 </div>
 
 <div id="container">
@@ -27,14 +18,14 @@
 
 <div>
     <form method="post" action="add">
-        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="hidden" name="_csrf" value="${_csrf.token}" />
         <input type="text" name="text" placeholder="Введите сообщение">
         <input type="text" name="tag" placeholder="Тег">
         <button type="submit"> Добавить</button>
     </form>
 
     <form method="post" action="delete">
-        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="hidden" name="_csrf" value="${_csrf.token}" />
         <input type="text" name="id" placeholder="id">
         <button type="submit"> Удалить</button>
     </form>
@@ -42,19 +33,19 @@
 
 <div>Список сообщений </div>
 <form method="post" action="filter">
-    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    <input type="hidden" name="_csrf" value="${_csrf.token}" />
     <input type="text" name="filter">
     <button type="submit">Найти</button>
 </form>
-{{#messages}}
+<#list messages as message>
     <div>
-        <b>{{id}}</b>
-        <span>{{text}}</span>
-        <i>{{tag}}</i>
-        <strong>{{authorName}}</strong>
+        <b>${message.id}</b>
+        <span>${message.text}</span>
+        <i>${message.tag}</i>
+        <strong>${message.authorName}</strong>
     </div>
+<#else>
+No message
+</#list>
 
-{{/messages}}
-
-</body>
-</html>
+<@c.page>
