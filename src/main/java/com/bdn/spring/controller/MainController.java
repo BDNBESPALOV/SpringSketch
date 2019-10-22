@@ -1,4 +1,4 @@
-package com.bdn.spring;
+package com.bdn.spring.controller;
 
 import com.bdn.spring.domain.Message;
 import com.bdn.spring.repos.MessageRepos;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class GreetingController {
+public class MainController {
     @Autowired
     private MessageRepos messagesRepos;
 

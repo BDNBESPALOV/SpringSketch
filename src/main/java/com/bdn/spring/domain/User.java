@@ -1,6 +1,5 @@
 package com.bdn.spring.domain;
 
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -13,12 +12,35 @@ public class User {
     private Long id;
     private String username;
     private String password;
-    private boolean aBoolean;
+    private boolean active;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> role;
+
+//    public User() {
+//    }
+//
+//    public User(String username, String password, boolean active, Set<Role> role) {
+//        this.username = username;
+//        this.password = password;
+//        this.active = active;
+//        this.role = role;
+//    }
+
+
+
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+
 
     public Long getId() {
         return id;
@@ -44,13 +66,7 @@ public class User {
         this.password = password;
     }
 
-    public boolean isaBoolean() {
-        return aBoolean;
-    }
-
-    public void setaBoolean(boolean aBoolean) {
-        this.aBoolean = aBoolean;
-    }
+//
 
     public Set<Role> getRole() {
         return role;
