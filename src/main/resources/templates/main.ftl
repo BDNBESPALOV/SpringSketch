@@ -4,6 +4,7 @@
 
 <div>
 <@l.logout />
+<span><a href="/user">User list</a> </span>
 </div>
 
 <div id="container">
@@ -18,8 +19,8 @@
 
 <div>
     <form method="post" action="add">
-        <input type="hidden" name="_csrf" value="${_csrf.token}" />
         <input type="text" name="text" placeholder="Введите сообщение">
+        <input type="hidden" name="_csrf" value="${_csrf.token}" />
         <input type="text" name="tag" placeholder="Тег">
         <button type="submit"> Добавить</button>
     </form>
@@ -32,9 +33,8 @@
 </div>
 
 <div>Список сообщений </div>
-<form method="post" action="filter">
-    <input type="hidden" name="_csrf" value="${_csrf.token}" />
-    <input type="text" name="filter">
+<form method="get" action="/main">
+    <input type="text" name="filter" value= ${filter!''}>
     <button type="submit">Найти</button>
 </form>
 <#list messages as message>
@@ -47,5 +47,4 @@
 <#else>
 No message
 </#list>
-
-<@c.page>
+</@c.page>
