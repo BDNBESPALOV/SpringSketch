@@ -1,6 +1,7 @@
 <#import "parts/common.ftl" as c>
 <@c.page>
 List of users
+<button type="submit"> <a href="/main">Main</a> </button>
 <table>
     <thead>
     <tr>

@@ -1,6 +1,7 @@
 <#import "parts/common.ftl" as c>
 <@c.page>
 User editor
+<button type="submit"> <a href="/main">Main</a> </button>
 <form action="/user" method="post">
     <input type="text" value="${user.username}" name="username">
     <#list roles as role>
