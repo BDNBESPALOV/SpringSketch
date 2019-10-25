@@ -7,7 +7,8 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
+
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home </a>
             </li>
@@ -20,7 +21,9 @@
             </li>
             </#if>
         </ul>
-        <div class="novbar-text rm-3">${name}</div>
+        <form class="form-inline my-2 my-lg-0">
+        <div class="navbar-text mr-3">${name}</div>
+        </form>
         <@l.logout />
     </div>
 </nav>
