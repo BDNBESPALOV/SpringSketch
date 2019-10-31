@@ -1,5 +1,8 @@
 package com.bdn.spring.domain;
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Message {
@@ -7,6 +10,8 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotBlank(message = "Заполни")
+    @Length(max = 2048, message = "Привышен максимальный размер сообщения")
     private String text;
     private String tag;
 
