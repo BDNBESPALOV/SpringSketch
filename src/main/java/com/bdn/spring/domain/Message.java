@@ -13,6 +13,7 @@ public class Message {
     @NotBlank(message = "Заполни")
     @Length(max = 2048, message = "Привышен максимальный размер сообщения")
     private String text;
+    @Length(max = 250, message = "Привышен максимальный размер teg")
     private String tag;
 
     @ManyToOne(fetch = FetchType.EAGER)

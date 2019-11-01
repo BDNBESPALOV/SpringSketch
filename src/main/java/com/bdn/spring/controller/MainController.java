@@ -59,10 +59,9 @@ public class MainController {
     ) throws IOException {
          message.setAuthor(user);
          if(bindingResult.hasErrors()){
-             Collector<FieldError,?, Map<String,String>>  collect =Collectors.toMap(
-                     fieldError -> fieldError.getField() + "Error",
-                     FieldError::getDefaultMessage);
-             bindingResult.getFieldErrors().stream().collect(collect);
+           Map<String,String> errorsMap = ControllerUtils.getErrors(bindingResult);
+           model.mergeAttributes(errorsMap);
+           model.addAttribute("message",message);
 
          }else {
              if (file != null && !file.getOriginalFilename().isEmpty()) {
@@ -82,6 +81,9 @@ public class MainController {
 
                  message.setFilename(resultFilename);
              }
+
+             model.addAttribute("message",null);
+
              messagesRepos.save(message);
          }
         Iterable<Message> messages = messagesRepos.findAll();

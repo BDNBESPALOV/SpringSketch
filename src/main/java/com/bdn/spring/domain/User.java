@@ -21,9 +21,7 @@ public class User implements UserDetails {
     private String username;
     @NotBlank(message = "Пароль не должен быть пустым")
     private String password;
-    @Transient
-    @NotBlank(message = "Пароль confirmation не должен быть пустым")
-    private String password2;
+
     private boolean active;
     @Email(message = "Некоректный Email")
     @NotBlank(message = "Email не должен быть пустым")
@@ -130,6 +128,7 @@ public class User implements UserDetails {
     }
 
 //
+
 
 
 }
