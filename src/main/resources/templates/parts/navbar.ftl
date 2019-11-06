@@ -12,9 +12,14 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home </a>
             </li>
+            <#if user??>
             <li class="nav-item active">
                 <a class="nav-link" href="/main">Message </a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/user-messages/${currentUserId}">My massages </a>
+            </li>
+            </#if>
             <#if isAdmin>
             <li class="nav-item active">
                 <a class="nav-link" href="/user">User list </a>

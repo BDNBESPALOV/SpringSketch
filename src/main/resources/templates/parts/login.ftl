@@ -50,7 +50,7 @@
         </div>
 
     </div>
-    <div class="col-sm-60">
+    <div class="col-sm-6">
         <div class="g-recaptcha" data-sitekey="6Lc-kcAUAAAAAARHwlVilUJ5b8SKzgPukODbJ5Sa"></div>
         <#if captchaError??>
         <div class="alert alert-danger" role="alert">
