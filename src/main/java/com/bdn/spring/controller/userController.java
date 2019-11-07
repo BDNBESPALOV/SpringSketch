@@ -62,7 +62,7 @@ public class userController {
 
     }
 
-    @GetMapping("subscribe/{user}")
+    @GetMapping("subscribers/{user}")
     public String subscribe(
             @PathVariable User user,
             @AuthenticationPrincipal User currentUser
