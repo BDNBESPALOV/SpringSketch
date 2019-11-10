@@ -11,6 +11,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <script src="https://www.google.com/recaptcha/api.js" ></script>
+    <style>
+    body {
+    background-image: url(http://oboi.cc/1366-768-100-uploads/11_05_2013/view/201209/oboik.ru_14734.jpg);
+    background-size: auto;
+    }
+    </style>
 
 </head>
 <body>

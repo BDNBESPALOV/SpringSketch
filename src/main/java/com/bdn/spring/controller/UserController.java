@@ -14,7 +14,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/user")
-public class userController {
+public class UserController {
     @Autowired
     private UserService userService;
 
@@ -37,7 +37,7 @@ public class userController {
     @PostMapping
     public String userSave(
             @RequestParam("userId") User user,
-            @RequestParam Map<String,Object> form,
+            @RequestParam Map<String,String> form,
             @RequestParam String username
 
             ){

@@ -5,7 +5,6 @@ import com.bdn.spring.domain.dto.CaptchaResponseDto;
 import com.bdn.spring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -36,7 +35,7 @@ public class RegistrationController {
         return "registration";
     }
 
-    @PostMapping("registration")
+    @PostMapping("/registration")
     public String addUser(
             @RequestParam("password2") String passwordConfirm,
             @RequestParam("g-recaptcha-response") String captchaResponse,
@@ -67,7 +66,7 @@ public class RegistrationController {
             model.addAttribute("usernameError","User exists!");
             return "registration";
         }
-        return "redirect:login";
+        return "redirect:/login";
     }
     @GetMapping("/activate/{code}")
     public String activate(Model model, @PathVariable String code){
@@ -79,7 +78,6 @@ public class RegistrationController {
             model.addAttribute("messageType", "danger");
             model.addAttribute("message", "Activation code is not found!");
         }
-
         return "login";
     }
 }

@@ -51,7 +51,7 @@ public class UserService implements UserDetailsService {
         if(!StringUtils.isEmpty(user.getEmail())){
             String message = String.format(
                     "Hello, %s! \n"+
-                            "Welcome to TwitDBN. Please, visit next link: http://%s/activation/%s",
+                            "Welcome to TwitDBN. Please, visit next link: http://%s/activate/%s",
                     user.getUsername(),
                     hostname,
                     user.getActivationCode()
@@ -75,7 +75,7 @@ public class UserService implements UserDetailsService {
         return userRepo.findAll();
     }
 
-    public void saveUser(User user, String username, Map<String, Object> form) {
+    public void saveUser(User user, String username, Map<String, String> form) {
         user.setUsername(username);
         Set<String> roles = Arrays.stream(Role.values())
                 .map(Role:: name)
@@ -118,7 +118,7 @@ public class UserService implements UserDetailsService {
     }
 
     public void unsubscribe(User currentUser, User user) {
-        user.getSubscriptions().remove(currentUser);
+        user.getSubscribers().remove(currentUser);
         userRepo.save(user);
     }
 }
